@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.searchSub.po.Customer" table="customer" schema="dbo">
+		<id name="customerId" type="int">
+			<column name="customerID" />
+			<generator class="increment" />
+		</id>
+		<property name="account" type="string">
+			<column name="account" length="20"  />
+		</property>
+		<property name="password" type="string">
+			<column name="password" length="20" />
+		</property>
+		<property name="tel" type="string">
+			<column name="tel" length="20" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" length="100" />
+		</property>
+		<set name="wrongQues" table="wrongques" lazy="false">
+            <key column="customerID"/>   
+            <many-to-many column="questionID" class="com.searchSub.po.Question"/>   
+        </set>
+	</class>
+</hibernate-mapping>

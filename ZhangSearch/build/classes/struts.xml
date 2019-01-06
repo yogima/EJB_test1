@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="strutsBean" extends="struts-default" namespace="/">
+		<action name="*Action" class="userAction" method="{1}">
+			<!-- <interceptor-ref name="defaultStack">
+                <param name="fileUpload.maximumSize">500000000</param>
+                <param name="fileUpload.allowedTypes">image/jpg,image/png</param>
+                <param name="fileUpload.allowedExtensions">.jpg,.png</param>
+            </interceptor-ref>	 -->
+			<result name="{1}Success">/{1}Success.jsp</result>
+			<result name="{1}Fail">/error.jsp</result>
+			
+		</action>
+
+		<action name="upload" class="searchAction" method="Img">
+			<result name="success">/questionResultUser.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		
+		<action name="collect" class="userAction" method="collect">
+			<result name="collectSuccess">/userCollectionSuccess.jsp</result>
+			<result name="collectFail">/userCollectionSuccess.jsp</result>
+		</action>
+		
+	</package>
+</struts>
